@@ -11,7 +11,7 @@
                     <!-- Footer Widget 1
         ============================================= -->
                     <div class="widget clearfix">
-                        <img src="../assets/logo4.png" alt="HUMAS MASJID Al-hijri" class="footer-logo"
+                        <img src="/assets/logo4.png" alt="HUMAS MASJID Al-hijri" class="footer-logo"
                             style="height: 120px">
                         <div style="background-size: 100%;">
                             <p>Selamat Datang Di Website Resmi Masjid Al-hijri. Memberdayakan Umat Dan Menyuarakan

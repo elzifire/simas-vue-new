@@ -28,7 +28,7 @@
                                             style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
                                     </div>
                                     <div class="card-body">
-                                        <router-link :to="{name: 'detail_post', params: {slug: post.slug}}"
+                                        <router-link :to="{ name: 'detail_post', params: { slug: post.slug } }"
                                             class="text-dark text-decoration-none">
                                             <h6>{{ post.title }}</h6>
                                         </router-link>
@@ -55,41 +55,49 @@
 
                         <!-- foto section -->
                         <div class="col-md-12 mb-3 mt-4">
-                            <h4 class="mb-2 mt-2 ls1 text-uppercase fw-bold"><i class="fa-solid fa-camera"></i> Galeri Kegiatan</h4>
+                            <h4 class="mb-2 mt-2 ls1 text-uppercase fw-bold"><i class="fa-solid fa-camera"></i> Galeri
+                                Kegiatan</h4>
                             <div class="line line-xs line-market"></div>
                         </div>
 
                         <div v-if="photos.length > 0">
-                        <div id="carouselExampleCaptions" class="carousel slide"  v-for="photo in photos" :key="photo.id">
-                            <div class="carousel-indicators">
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                            </div>
-                            <div class="carousel-inner">
-                              <div class="carousel-item active">
-                                <img :src="photo.image" class="d-block w-100">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5 class="text-white"> {{ photo.heading }} </h5>
-                                  <p class="text-start text-white"> {{ photo.date }} </p>
+                            <div id="carouselExampleCaptions" class="carousel slide" v-for="photo in photos"
+                                :key="photo.id">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                                        aria-label="Slide 2"></button>
+                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                                        aria-label="Slide 3"></button>
                                 </div>
-                              </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img :src="photo.image" class="d-block w-100">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5 class="text-white"> {{ photo.heading }} </h5>
+                                            <p class="text-start text-white"> {{ photo.date }} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="visually-hidden">Next</span>
-                            </button>
-                          </div>
                         </div>
-                        
-                        
+
+
 
                         <div v-else class="mt-5">
-                            <div class="card border-0 shadow-sm rounded-lg mb-3" v-for="loader in photos_loader" :key="loader">
+                            <div class="card border-0 shadow-sm rounded-lg mb-3" v-for="loader in photos_loader"
+                                :key="loader">
                                 <div class="card-body pt-4">
                                     <ContentLoader />
                                 </div>
@@ -145,7 +153,7 @@
                     </div>
 
                     <div v-if="events.length > 0">
-                        <router-link :to="{name: 'detail_event', params:{slug: event.slug}}" v-for="event in events"
+                        <router-link :to="{ name: 'detail_event', params: { slug: event.slug } }" v-for="event in events"
                             :key="event.id" class="text-decoration-none text-dark">
                             <div class="card mb-3 shadow-sm border-0">
                                 <div class="card-body">
@@ -164,8 +172,7 @@
 
                     <div v-else>
                         <div class="row">
-                            <div v-for="loader in events_loader"
-                                :key="loader">
+                            <div v-for="loader in events_loader" :key="loader">
                                 <div class="card border-0 shadow-sm rounded-lg mb-3">
                                     <div class="card-body pt-4">
                                         <FacebookLoader />
@@ -184,7 +191,7 @@
 
                     <div v-if="categories.length > 0">
                         <div class="list-group">
-                            <router-link :to="{name: 'detail_category', params:{slug: category.slug}}"
+                            <router-link :to="{ name: 'detail_category', params: { slug: category.slug } }"
                                 class="list-group-item list-group-item-action border-0 shadow-sm mb-2 rounded"
                                 v-for="category in categories" :key="category.id"><i class="fa fa-folder-open"
                                     aria-hidden="true"></i> {{ category.name.toUpperCase() }}</router-link>
@@ -193,24 +200,44 @@
 
                     <div v-else>
                         <div class="row">
-                            <div v-for="loader in categories_loader"
-                                :key="loader">
+                            <div v-for="loader in categories_loader" :key="loader">
                                 <div class="card border-0 shadow-sm rounded-lg mb-3">
                                     <div class="card-body pt-4">
                                         <BulletListLoader />
                                     </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                     <!-- end kategori section -->
 
-                  <!-- start money -->
-                  
-<!-- end money -->
 
-                    
+                    <!-- start money section -->
+                    <div class="title mb-4 mt-5">
+                        <h4><i class="fa fa-money" aria-hidden="true"></i> INFORMASI KEUANGAN</h4>
+                    </div>
+
+                    <div v-if="moneys !== null" class="card border-0 shadow-sm rounded-lg mb-3">
+                        <div class="card-body">
+                            <h6>SALDO MASUK: {{ moneys.masuk }} </h6>
+                            <h6>SALDO KELUAR {{ moneys.keluar }} </h6>
+                            <h6>SALDO {{ moneys.saldo }} </h6>
+                        </div>
+                    </div>
+
+                    <div v-else>
+                        <div class="card border-0 shadow-sm rounded-lg mb-3">
+                            <div class="card-body pt-4">
+                                <ContentLoader />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end money section -->
+
+
+
+
                 </div>
             </div>
         </div>
@@ -223,113 +250,113 @@
 </template>
 
 <script>
-    //import content loader
-    import {
+//import content loader
+import {
+    ContentLoader,
+    FacebookLoader,
+    BulletListLoader,
+} from 'vue-content-loader';
+
+//import axios
+import axios from 'axios';
+
+//import hook onMounted from vue
+import { ref, onMounted } from 'vue';
+
+//import component
+import Header from "../../components/Header.vue";
+import Slider from "../../components/Slider.vue";
+import Footer from "../../components/Footer.vue";
+
+export default {
+    name: 'HomeComponent',
+
+    components: {
+        //loader component
         ContentLoader,
         FacebookLoader,
         BulletListLoader,
-    } from 'vue-content-loader';
+        //component app
+        Header,
+        Slider,
+        Footer
+    },
 
-    //import axios
-    import axios from 'axios';
+    setup() {
 
-    //import hook onMounted from vue
-    import { ref, onMounted } from 'vue';
+        //define state
+        const posts = ref([]);
+        const posts_loader = ref(3);
 
-    //import component
-    import Header from "../../components/Header.vue";
-    import Slider from "../../components/Slider.vue";
-    import Footer from "../../components/Footer.vue";
+        const videos = ref([]);
+        const videos_loader = ref([]);
 
-    export default {
-        name: 'HomeComponent',
+        const events = ref([]);
+        const events_loader = ref(2);
 
-        components: {
-            //loader component
-            ContentLoader,
-            FacebookLoader,
-            BulletListLoader,
-            //component app
-            Header,
-            Slider,
-            Footer
-        },
-        
-        setup() {
+        const categories = ref([]);
+        const categories_loader = ref(1);
 
-            //define state
-            const posts = ref([]);
-            const posts_loader = ref(3);
+        const photos = ref([]);
+        const photos_loader = ref(1);
 
-            const videos = ref([]);
-            const videos_loader = ref([]);
+        const moneys = ref(null);
 
-            const events = ref([]);
-            const events_loader = ref(2);
 
-            const categories = ref([]);
-            const categories_loader = ref(1);
+        //hook onMounted
+        onMounted(async () => {
+            //get posts
+            axios.get('/api/homepage/post')
+                .then(response => {
+                    posts.value = response.data.data;
+                })
 
-            const photos = ref([]);
-            const photos_loader = ref(1);
+            //get videos
+            axios.get('/api/homepage/video')
+                .then(response => {
+                    videos.value = response.data.data;
+                })
 
-            const moneys = ref([]);
-            const moneys_loader = ref(1);
+            //get events
+            axios.get('/api/homepage/event')
+                .then(response => {
+                    events.value = response.data.data;
+                })
 
-            //hook onMounted
-            onMounted(async () => {
-                //get posts
-                axios.get('/api/homepage/post')
-                    .then(response => {
-                        posts.value = response.data.data;
-                    })
+            //get categories
+            axios.get('/api/category')
+                .then(response => {
+                    categories.value = response.data.data.data;
+                })
 
-                //get videos
-                axios.get('/api/homepage/video')
-                    .then(response => {
-                        videos.value = response.data.data;
-                    })
+            //get photos
+            axios.get('/api/homepage/photo')
+                .then(response => {
+                    photos.value = response.data.data;
+                })
 
-                //get events
-                axios.get('/api/homepage/event')
-                    .then(response => {
-                        events.value = response.data.data;
-                    })
-
-                //get categories
-                axios.get('/api/category')
-                    .then(response => {
-                        categories.value = response.data.data.data;
-                    })
-
-                //get photos
-                axios.get('/api/homepage/photo')
-                    .then(response => {
-                        photos.value = response.data.data;
-                    })
-
-                axios.get('/api/homepage/money')
+            // get money
+            axios.get('/api/homepage/money')
                 .then(response => {
                     moneys.value = response.data.data;
-                })    
+                })
 
-            });
+        });
 
-            //return state
-            return {
-                posts,
-                posts_loader,
-                videos,
-                videos_loader,
-                events,
-                events_loader,
-                categories,
-                categories_loader,
-                photos,
-                photos_loader,
-                moneys,
-                moneys_loader,
-            }
+        //return state
+        return {
+            posts,
+            posts_loader,
+            videos,
+            videos_loader,
+            events,
+            events_loader,
+            categories,
+            categories_loader,
+            photos,
+            photos_loader,
+            moneys,
         }
     }
+}
 </script>
