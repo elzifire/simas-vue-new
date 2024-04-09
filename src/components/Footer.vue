@@ -42,11 +42,11 @@
     ============================================= -->
                 <div class="col-lg-4 col-sm-6 mb-0">
                     <div class="widget widget_links clearfix">
-                        <h4 class="mb-3 mb-sm-4">Download Aplikasi E-Al-hijri</h4>
+                        <h4 class="mb-3 mb-sm-4">Download Aplikasi E-AlHijri</h4>
                         <p>E-Al-hijri merupakan layanan dompet digital yang membantu jamaah masjid Al-hijri untuk
                             melakukan transaksi keuangan secara digital dengan menyimpan uang, melakukan pembayaran
                             online dan offline dengan aman, kapanpun dan dimanapun dengan mudah.</p>
-                        <a href="../play.google.com/store/apps/detailse91c.html?id=com.zocial.Al-hijri"
+                        <a href="#"
                             class="button button-light text-dark w-100 text-center bg-white nott ls0 button-rounded button-xlarge ms-0"
                             target="_blank"><i class="icon-googleplay"></i>Google Play</a>
                     </div>
@@ -63,7 +63,7 @@
             <div class="container clearfix">
 
                 <div class="row justify-content-center">
-                    <div class="col-md-6 align-self-center">
+                    <div class="col-md-6 text-center align-self-center">
                         Copyrights &copy;
                         {{ currentYear }}
                     </div>
@@ -123,7 +123,7 @@
                         tags.value = [];
                     });
             });
-
+            console.log(currentYear);
             //return data
             return {
                 tags,

@@ -27,6 +27,7 @@
         </nav>
         <!-- end breadcrumb -->
 
+        <!-- content -->
         <div class="container-fluid mt-5 mb-5">
 
             <div class="row">

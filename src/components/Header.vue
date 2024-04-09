@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-md navbar-white fixed-top bg-white" style="border-top: 5px solid;">
+    <nav class="navbar navbar-expand-md navbar-white fixed-top bg-light-subtle text-dark">
         <div class="container-fluid">
 
           <router-link :to="{ name: 'home' }" class="navbar-brand"><img src="/assets/img/logo2.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
@@ -19,7 +19,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">VISI DAN MISI</a></li>
-                  <li><a class="dropdown-item" href="#">SEJARAH</a></li>
+                  <li><router-link :to="{name : 'history'}" class="dropdown-item" >SEJARAH</router-link></li>
                   <li><a class="dropdown-item" href="#">PIMPINAN</a></li>
                   <li><router-link :to="{name: 'muadzin'}" class="dropdown-item" >IMAM DAN MUADZIN</router-link></li>
                 </ul>

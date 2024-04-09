@@ -68,8 +68,14 @@ const routes = [
     {
         path: '/muadzin',
         name: 'muadzin',
-        component: () => import( /* webpackChunkName: "PostShow" */ "../views/muadzin/Index.vue")
+        component: () => import( /* webpackChunkName: "MuadzinIndex" */ "../views/muadzin/Index.vue")
     },
+    {
+        path: '/history',
+        name: 'history',
+        component: () => import("../views/history/Index.vue"),
+    },
+
 ]
 
 //create router
