@@ -75,6 +75,11 @@ const routes = [
         name: 'history',
         component: () => import("../views/history/Index.vue"),
     },
+    {
+        path: '/management',
+        name: 'management',
+        component: () => import("../views/management/Index.vue"),
+    },
 
 ]
 
