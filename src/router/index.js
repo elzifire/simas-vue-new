@@ -80,6 +80,11 @@ const routes = [
         name: 'management',
         component: () => import("../views/management/Index.vue"),
     },
+    {
+        path: '/visi',
+        name: 'visi',
+        component: () => import("../views/visi/Index.vue"),
+    }
 
 ]
 

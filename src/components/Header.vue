@@ -18,7 +18,7 @@
                   PROFILE
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">VISI DAN MISI</a></li>
+                  <li><router-link :to="{name: 'visi'}" class="dropdown-item" >VISI DAN MISI</router-link></li>
                   <li><router-link :to="{name : 'history'}" class="dropdown-item" >SEJARAH</router-link></li>
                   <li><router-link :to="{name: 'management'}" class="dropdown-item">PIMPINAN</router-link></li>
                   <li><router-link :to="{name: 'muadzin'}" class="dropdown-item" >IMAM DAN MUADZIN</router-link></li>
