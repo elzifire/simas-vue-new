@@ -84,6 +84,11 @@ const routes = [
         path: '/visi',
         name: 'visi',
         component: () => import("../views/visi/Index.vue"),
+    },
+    {
+        path: '/mualaf',
+        name: 'mualaf',
+        component: () => import("../views/mualaf/Index.vue"),
     }
 
 ]

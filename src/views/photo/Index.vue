@@ -8,18 +8,13 @@
         <header class="pt-5 border-bottom bg-light">
             <div class="container pt-md-1 pb-md-1">
                 <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-image" aria-hidden="true"></i> GALERI</h1>
-                <p class="bd-lead">Galeri Foto terbaru tentang AL-HIJRI II.</p>
+                <p class="bd-lead">Galeri Foto terbaru tentang MASJID IBN KHALDUN.</p>
+                
             </div>
+            
         </header>
 
-        <!-- breadcrumb -->
-        <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><router-link :to="{ name: 'home' }" class="text-decoration-none"><i class="fa fa-home"></i> Home</router-link></li>
-            <li class="breadcrumb-item"><router-link :to="{ name: 'photo' }" class="text-decoration-none"><i class="fa fa-image"></i> Galeri Foto</router-link></li>
-        </ol>
-        </nav>
-        <!-- end breadcrumb -->
+        
 
         <div class="container-fluid mt-5 mb-5">
 

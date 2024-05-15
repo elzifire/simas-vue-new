@@ -14,7 +14,7 @@
                         <img src="/assets/logo4.png" alt="HUMAS MASJID Al-hijri" class="footer-logo"
                             style="height: 120px">
                         <div style="background-size: 100%;">
-                            <p>Selamat Datang Di Website Resmi Masjid Al-hijri. Memberdayakan Umat Dan Menyuarakan
+                            <p>Selamat Datang Di Website Resmi Masjid IBN KHALDUN . Memberdayakan Umat Dan Menyuarakan
                                 Moderasi Islam.</p>
                                 <abbr title="Telepon"><strong>Telepon :</strong></abbr> +62 81314223820<br>
                                 <abbr title="Email"><strong>Email :</strong></abbr> info@Al-hijri.or.id<br>
