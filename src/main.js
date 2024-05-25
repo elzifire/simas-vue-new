@@ -9,6 +9,11 @@ import App from './App.vue'
 //import router
 import router from './router'
 
+// owl carousel
+import $ from 'jquery';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel';
+
 const app = createApp(App)
 
 //gunakan router di vue js dengan plugin "use"

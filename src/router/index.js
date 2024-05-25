@@ -89,7 +89,13 @@ const routes = [
         path: '/mualaf',
         name: 'mualaf',
         component: () => import("../views/mualaf/Index.vue"),
+    },
+    {
+        path: '/slider',
+        name: 'slider',
+        component: () => import("../components/Slider.vue"),
     }
+
 
 ]
 

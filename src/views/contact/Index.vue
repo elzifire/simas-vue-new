@@ -29,7 +29,6 @@
 
         <!-- content -->
         <div class="container-fluid mt-5 mb-5">
-
             <div class="row">
                 <div class="col-md-7">
                     <div class="card border-0 shadow-sm rounded">
@@ -46,15 +45,13 @@
                         <div class="card-body">
                             <h3>KONTAK KAMI</h3>
                             <hr>
+                            <div v-for="contact in contacts" :key="contact.id" class="mb-3">
+                                <p><i class="fa fa-user"></i> {{ contact.name }}</p>
+                                <p><i class="fas fa-phone"></i> {{ contact.phone }}</p>
+                            </div>
                             <p>
-                                <i class="fa fa-map-marker" aria-hidden="true"></i> Jl. Sholeh Iskandar, RT.01/RW.10, Kedungbadak, Kec. Tanah Sereal, Kota Bogor, Jawa Barat 16162
-                            </p>
-                            <p>
-                                <i class="fas fa-phone"></i> 
-                            </p>
-                            <!-- <p>
                                 <i class="fas fa-envelope"></i> 
-                            </p> -->
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -69,16 +66,39 @@
 </template>
 
 <script>
+    // import axios
+    import axios from "axios";
+    
+    //import hook onMounted from vue
+    import { ref, onMounted } from 'vue';
+
     //import component
     import Header from "../../components/Header.vue";
     import Footer from "../../components/Footer.vue";
-
 
     export default {
         name: 'ContactComponent',
         components: {
             Header,
             Footer
+        },
+        setup() {
+            const contacts = ref([]);
+
+            onMounted(async () => {
+                try {
+                    const response = await axios.get('http://localhost:8000/api/contact');
+                    if (response.data && response.data.data) {
+                        contacts.value = response.data.data;
+                    }
+                } catch (error) {
+                    console.error("There was an error fetching the contact data:", error);
+                }
+            });
+
+            return {
+                contacts
+            };
         }
     }
 </script>

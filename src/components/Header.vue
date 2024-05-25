@@ -85,6 +85,18 @@
                 </router-link>
               </li>
               <li class="menu-item menu-color-home">
+                <a href="#" class="menu-link">
+                  <div>Layanan</div>
+                </a>
+                <ul class="sub-menu-container">
+                  <li v-for="service in services" :key="service.id" class="menu-item">
+                    <a :href="service.url" target="_blank" class="menu-link">
+                      <div>{{ service.name }}</div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item menu-color-home">
                 <router-link :to="{ name: 'photo' }" class="menu-link">
                   <div>Galeri</div>
                 </router-link>
@@ -113,11 +125,30 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
-  name: 'HeaderComponent'
+  name: 'HeaderComponent',
+  data() {
+    return {
+      services: [],
+    };
+  },
+  created() {
+    this.fetchServiceData();
+  },
+  methods: {
+    fetchServiceData() {
+      axios.get('http://localhost:8000/api/service')
+        .then(response => {
+          if (response.data && response.data.data) {
+            this.services = response.data.data;
+          }
+        })
+        .catch(error => {
+          console.error("There was an error fetching the service data!", error);
+        });
+    }
+  }
 }
 </script>
-
-<style scoped>
-/* Tambahkan beberapa gaya khusus jika diperlukan */
-</style>
