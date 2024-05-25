@@ -1,17 +1,20 @@
 <template>
     <div id="history">
         <Header />
-        <!-- end header -->
-        <!-- title -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1">
-                <h1 class="bd-title font-weight-bold text-center"><i class="fa-solid fa-mosque"></i>&nbsp;<span>SEJARAH
-                        MASJID AL-HIJRI II</span></h1>
+        <!-- New header section -->
+        <section id="page-title" class="page-title-mini bg-color page-title-dark">
+            <div class="container clearfix">
+                <h1>Sejarah</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Sejarah</li>
+                </ol>
             </div>
-        </header>
+        </section>
+        <!-- end header section -->
+
         <!-- content -->
         <div class="container-fluid mt-5 mb-5">
-
             <div class="row">
                 <div class="col-md-7 mx-auto">
                     <div class="card border-0 shadow-sm rounded">
@@ -47,53 +50,28 @@
                                 obcaecati libero quaerat ullam repellat vero officia alias tempore dolor mollitia
                                 quisquam nostrum atque odit, cupiditate nihil deserunt totam quia inventore beatae
                                 quidem tenetur. Deleniti numquam mollitia dicta ad quo modi reiciendis, commodi
-                                provident distinctio sequi, necessitatibus sapiente minus cumque saepe, qui corporis
-                                accusantium tempore quidem nulla. Voluptas neque repellat ut nobis dolores, nisi aut
-                                corporis eius voluptatibus optio cum dolor eaque ea laborum enim deleniti atque
-                                recusandae blanditiis, delectus distinctio vitae corrupti possimus fugit fugiat!
-                                Laboriosam totam vel distinctio porro ratione? Vitae repellendus placeat architecto
-                                ducimus tempora maiores aliquam ratione dolores, nam sunt ullam sequi reprehenderit
-                                maxime asperiores explicabo hic harum cum dolore nesciunt amet obcaecati sed nostrum
-                                quae. Consequuntur quod unde quibusdam at sunt fugit beatae, aliquam maxime
-                                reprehenderit vel iure, ullam commodi numquam possimus asperiores quaerat fuga quidem
-                                minima? Quisquam dicta nemo dolor illum voluptates? Ea nam quo ipsum. Quos architecto
-                                quia, beatae error rem nulla? Omnis itaque deleniti optio illo totam temporibus quos a
-                                perferendis ullam quam hic, repudiandae velit tenetur rem ipsam ea aperiam minima
-                                voluptate provident reprehenderit. Debitis rerum explicabo, beatae sequi mollitia
-                                incidunt in tempora velit illum ut ipsum ex odio veniam pariatur eligendi natus
-                                distinctio ipsa animi, nisi sed dicta. Nemo similique corrupti nam molestiae optio?
-                                Aliquid voluptatum exercitationem quibusdam, facilis deserunt est adipisci qui, quaerat
-                                cupiditate tenetur quae ipsam quam temporibus minus asperiores magni fugiat velit, vero
-                                obcaecati assumenda nesciunt corrupti illum? Placeat neque aspernatur commodi dicta nam
-                                voluptates, nemo voluptate iusto praesentium corporis tenetur iure saepe reiciendis id
-                                ea iste laborum doloribus inventore reprehenderit. Molestias ipsam nisi quibusdam neque
-                                blanditiis eum quo tempore doloremque temporibus quas, sequi aut ad rem saepe cumque,
-                                laboriosam amet nostrum sapiente facilis reprehenderit obcaecati quae. Iure eligendi
-                                ratione, nesciunt nemo, magni nostrum nobis aliquid ipsa vero inventore tempora, saepe
-                                reiciendis repellendus illo culpa odio itaque? Laborum laboriosam enim tempora similique
-                                iste aperiam iusto atque, nemo, ad veniam nostrum aliquam quae architecto expedita, id
-                                deleniti velit voluptatem. Blanditiis voluptate distinctio assumenda sit, corrupti
-                                deleniti nisi ad veniam non fugiat explicabo maxime quo ipsum aut placeat libero
-                                mollitia nam amet. Quod assumenda eaque laboriosam quia labore quam itaque esse
-                                consequatur ipsum pariatur ipsa cumque exercitationem fuga, quae atque nobis deserunt
-                                consequuntur aliquid? Vero cupiditate placeat quidem magni, nostrum at laboriosam
-                                corporis sed non repudiandae dolore in, eum voluptatem nisi animi, aut provident nulla?
-                                Aperiam, debitis optio. A expedita nemo soluta accusamus, culpa dolorum nihil hic
-                                similique adipisci eligendi. Delectus aperiam facilis impedit consequatur ipsam corrupti
-                                ducimus explicabo. Doloremque accusantium, atque praesentium odit iure repudiandae ipsam
-                                ullam, unde porro, modi alias et tenetur animi quibusdam saepe? Quae cum asperiores,
-                                unde mollitia voluptas natus laudantium, eligendi voluptatum, delectus suscipit
-                                similique ipsam. Reprehenderit, totam.</p>
+                                provident distinctio sequi, necessitatibus sapiente minus cumque saepe, yang tubuh
+                                menuduh tentu saja. Voluptas neque repellat ut nobis dolores, nisi aut
+                                tubuhnya voloptatibus optio cum dolor eaque ea laborum enim deleniti atque
+                                retreat blanditiis, hidup berbeda merusak orang pelarian!
+                                Laboriosam total vel
+                                Keterangan: Quisquam dicta nemo dolor dan keanehan yang besar? Setiap nama itu.
+                                Keduanya optio, rerum explicabo, beatae sequi mollitia
+                                Kebutuhan dalam pencahayaan sementara menyala ut
+                                dengan tepat tidak mungkin, menuduh terpisah itu
+                                animator, saya baru saja mendikte. Nemo serupa rusak nam molestiae optio?
+                                Sebagian dari pelatihan yang bagus, sangat mudah untuk tidak sejenis
+                                membutuhkan kesenangan dari siapa, tempat besar mempertahankan tenetur. Pemulihan tidak rata
+                                perasaan seseorang. Jarak yang benar-benar berbeda untuk menetapkan, saya tinggal di sana, layak untuk menghadapi desain arsitektur
+                                sementara yang besar ditutupi oleh penampilan besar, id
+                                membagi mempermalukan perasaan dari kesalahan terbesar dari produk kami, dibandingkan.
+                            </p>
                         </div>
                     </div>
-
                 </div>
-                
             </div>
         </div>
         <!-- main content -->
-
-
 
         <!-- start footer -->
         <Footer />
@@ -106,7 +84,6 @@
 import Header from "../../components/Header.vue";
 import Footer from "../../components/Footer.vue";
 
-
 export default {
     name: 'historyComponent',
 
@@ -116,5 +93,31 @@ export default {
         Footer
     }
 }
-
 </script>
+
+<style scoped>
+/* Add styles to ensure the new header section looks good */
+.page-title-mini {
+    padding: 20px 0;
+}
+
+.page-title-dark {
+    background-color: #333;
+    color: white;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #aaa;
+}
+</style>

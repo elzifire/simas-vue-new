@@ -4,28 +4,18 @@
         <Header />
         <!-- end header -->
 
-        <!-- main content -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1 pb-md-1">
-                <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-phone" aria-hidden="true"></i> KONTAK</h1>
-                <p class="bd-lead">MASJID AL-HIJRI II</p>
+        <!-- page title -->
+        <section id="page-title" class="page-title-mini bg-color page-title-dark">
+            <div class="container clearfix">
+                <h1>Kontak Kami</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                    <!-- <li class="breadcrumb-item">Halaman</li> -->
+                    <li class="breadcrumb-item active" aria-current="page">Kontak</li>
+                </ol>
             </div>
-        </header>
-
-        <!-- breadcrumb -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'home' }" class="text-decoration-none"><i class="fa fa-home"></i> Home
-                    </router-link>
-                </li>
-                <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'contact' }" class="text-decoration-none"><i class="fa fa-phone"></i>
-                        Kontak</router-link>
-                </li>
-            </ol>
-        </nav>
-        <!-- end breadcrumb -->
+        </section>
+        <!-- end page title -->
 
         <!-- content -->
         <div class="container-fluid mt-5 mb-5">
@@ -102,3 +92,21 @@
         }
     }
 </script>
+
+<style scoped>
+/* Add styles to ensure the new header section looks good */
+.page-title-mini {
+    padding: 20px 0;
+}
+
+.page-title-dark {
+    background-color: #333;
+    color: white;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+</style>

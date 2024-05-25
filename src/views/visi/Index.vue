@@ -3,11 +3,20 @@
         <!-- Include Header component -->
         <Header />
         
+        <!-- New header section -->
+        <section id="page-title" class="page-title-mini bg-color page-title-dark">
+            <div class="container clearfix">
+                <h1>Visi dan Misi</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Visi dan Misi</li>
+                </ol>
+            </div>
+        </section>
+        <!-- end header section -->
+
         <section class="container py-5">
             <div class="row">
-                <div class="col-12">
-                    <h2 class="text-center mb-4">Visi dan Misi</h2>
-                </div>
                 <div class="col-12">
                     <p class="text-center">Visi dan Misi dari Masjid Al-Ikhlas</p>
                 </div>
@@ -19,14 +28,14 @@
             <!-- Show data if available -->
             <div v-else-if="visi.length > 0" class="row">
                 <div class="col-12">
-                    <h3 class="text-center">Visi</h3>
+                    <h3 class="text-start">Visi</h3>
                     <!-- Render Visi HTML content -->
-                    <p class="text-center" v-html="visi[0].visi"></p>
+                    <p class="text-start" v-html="visi[0].visi"></p>
                 </div>
                 <div class="col-12">
-                    <h3 class="text-center">Misi</h3>
+                    <h3 class="text-start">Misi</h3>
                     <!-- Render Misi HTML content -->
-                    <p class="text-center" v-html="visi[0].misi"></p>
+                    <p class="text-start" v-html="visi[0].misi"></p>
                 </div>
             </div>
             <!-- Show message if no data is available -->
@@ -77,3 +86,30 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+/* Add styles to ensure the new header section looks good */
+.page-title-mini {
+    padding: 20px 0;
+}
+
+.page-title-dark {
+    background-color: #333;
+    color: white;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #aaa;
+}
+</style>

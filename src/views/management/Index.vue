@@ -3,13 +3,19 @@
         <!-- start header -->
         <Header />
         <!-- end header -->
-        <!-- title -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1 pb-md-1">
-                <h1 class="bd-title mt-4 font-weight-bold"><i class="fa-solid fa-user-tie"></i> PIMPINAN </h1>
+        
+        <!-- new header section -->
+        <section id="page-title" class="page-title-mini bg-color page-title-dark">
+            <div class="container clearfix">
+                <h1>Pejabat</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="https://istiqlal.or.id/">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Pejabat Badan Pengelola Masjid Istiqlal</li>
+                </ol>
             </div>
-        </header>
-        <!-- end title -->
+        </section>
+        <!-- end new header section -->
+
         <section class="bg-light py-3 py-md-5 py-xl-8">
             <div class="container overflow-hidden">
                 <!-- Check if management array is empty -->
@@ -24,26 +30,27 @@
                 </template>
                 <!-- Show management data if not empty -->
                 <template v-else>
-                    <div class="row gy-4 gy-lg-0 gx-xxl-5">
-                        <!-- image muadzin -->
-                        <div v-for="(manager, index) in management" :key="index" class="col-12 col-md-6 col-lg-3">
-                            <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
-                                <div class="card-body p-0">
-                                    <figure class="m-0 p-0 text-center">
-                                        <img :src="manager.image" max-height="200px" width="auto" class="mx-auto">
-                                        <figcaption class="m-0 p-4">
-                                            <h4 class="mb-1 text-center">{{ manager.name }}</h4>
-                                            <p class="text-secondary mb-0 text-center">{{ manager.position }}</p>
-                                        </figcaption>
-                                    </figure>
+                    <div class="row">
+                        <!-- management data -->
+                        <div v-for="(manager, index) in management" :key="index" class="col-lg-4 col-md-6 bottommargin">
+                            <div class="team">
+                                <div class="team-image" style="display: flex; justify-content: center;">
+                                    <img :src="manager.image" :alt="manager.name" class="rounded-circle" style="max-height: 200px; width: auto;">
+                                </div>
+                                <div class="team-desc team-desc-bg">
+                                    <div class="team-title">
+                                        <h4>{{ manager.name }}</h4>
+                                        <span>{{ manager.position }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- end image -->
+                        <!-- end management data -->
                     </div>
                 </template>
             </div>
         </section>
+        
         <!-- start Footer -->
         <Footer />
         <!-- end Footer -->
@@ -85,3 +92,56 @@
         }
     }
 </script>
+
+<style scoped>
+/* Add styles to ensure the new header section looks good */
+.page-title-mini {
+    padding: 20px 0;
+}
+
+.page-title-dark {
+    background-color: #333;
+    color: white;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #aaa;
+}
+
+.team {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.team-image {
+    margin-bottom: 15px;
+}
+
+.team-title h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.team-title span {
+    display: block;
+    font-size: 14px;
+    color: #888;
+}
+
+.team-desc-bg {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 5px;
+}
+</style>
