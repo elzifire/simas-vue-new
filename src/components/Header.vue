@@ -39,7 +39,7 @@
       <div class="container">
         <div class="header-row justify-content-between flex-row-reverse flex-lg-row">
           
-          <div id="primary-menu-trigger">
+          <div @click="toggleMenu" id="primary-menu-trigger">
             <svg class="svg-trigger" viewBox="0 0 100 100">
               <path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path>
               <path d="m 30,50 h 40"></path>
@@ -49,17 +49,17 @@
 
           <!-- Primary Navigation -->
           <nav class="primary-menu with-arrows">
-            <ul class="menu-container">
+            <ul :class="{ 'd-block d-lg-none': isMenuOpen, 'd-lg-flex d-none': !isMenuOpen }" class="menu-container">
               <li class="menu-item current menu-color-home">
                 <router-link :to="{ name: 'home' }" class="menu-link">
                   <div>Beranda</div>
                 </router-link>
               </li>
               <li class="menu-item menu-color-home">
-                <a class="menu-link" href="#">
+                <a @click="toggleSubMenu" class="menu-link" href="#">
                   <div>Profil</div>
                 </a>
-                <ul class="sub-menu-container">
+                <ul :class="{ 'd-block': isSubMenuOpen, 'd-none': !isSubMenuOpen }" class="sub-menu-container">
                   <li class="menu-item">
                     <router-link :to="{ name: 'visi' }" class="menu-link">Visi dan Misi</router-link>
                   </li>
@@ -131,6 +131,8 @@ export default {
   name: 'HeaderComponent',
   data() {
     return {
+      isMenuOpen: false,
+      isSubMenuOpen: false,
       services: [],
     };
   },
@@ -140,14 +142,20 @@ export default {
   methods: {
     fetchServiceData() {
       axios.get('http://localhost:8000/api/service')
-        .then(response => {
-          if (response.data && response.data.data) {
-            this.services = response.data.data;
-          }
-        })
-        .catch(error => {
-          console.error("There was an error fetching the service data!", error);
-        });
+          .then(response => {
+            if (response.data && response.data.data) {
+              this.services = response.data.data;
+            }
+          })
+          .catch(error => {
+            console.error("There was an error fetching the service data!", error);
+          });
+    },
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    },
+    toggleSubMenu() {
+      this.isSubMenuOpen = !this.isSubMenuOpen;
     }
   }
 }
