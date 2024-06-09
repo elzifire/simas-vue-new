@@ -5,28 +5,27 @@
         <!-- end header -->
 
         <!-- main content -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1 pb-md-1">
-                <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-book-open" aria-hidden="true"></i> BERITA
-                </h1>
-                <p class="bd-lead">Berita terbaru tentang AL-HIJRI II.</p>
+        <header id="page-menu">
+            <div id="page-menu-wrap">
+                <div class="container">
+                    <div class="page-menu-row">
+                        <nav class="page-menu-nav">
+                            <ul class="page-menu-container">
+                                <li class="menu-item menu-color-home" v-if="categories.length > 0">
+                                    <router-link :to="{ name: 'detail_category', params: { slug: category.slug } }"
+                  class="list-group-item list-group-item-action border-0 shadow-sm mb-2 rounded"
+                  v-for="category in categories" :key="category.id"><i class="fa fa-folder-open"
+                    aria-hidden="true"></i> {{ category.name.toUpperCase() }}</router-link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
             </div>
+           
         </header>
 
-        <!-- breadcrumb -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'home' }" class="text-decoration-none"><i class="fa fa-home"></i> Home
-                    </router-link>
-                </li>
-                <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'post' }" class="text-decoration-none"><i class="fa fa-book-open"></i>
-                        Berita</router-link>
-                </li>
-            </ol>
-        </nav>
-        <!-- end breadcrumb -->
+        
 
         <div class="container-fluid mt-5 mb-5">
 
@@ -111,10 +110,13 @@
             const posts = ref([]);
             const posts_loader = ref(6);
 
+            // define category
+            const categories = ref([]);
+
             //define state moreExists
             let moreExists = ref(false);
             let nextPage = ref(0);
-
+            
             //define method
             const fetchDataPosts = () => {
                 axios.get('/api/post')
@@ -136,6 +138,14 @@
                             //set state moreExists to false
                             moreExists.value = false
                         }
+                    })
+            };
+
+            // define method categories
+            const fetchDataCategories = () => {
+                axios.get('/api/category')
+                    .then(response => {
+                        categories.value = response.data.data.data
                     })
             };
 
@@ -168,12 +178,16 @@
 
                 //fetch data posts
                 fetchDataPosts()
+
+                // fetch data categories
+                fetchDataCategories()
             });
 
             //return data
             return {
                 posts,
                 posts_loader,
+                categories,
                 moreExists,
                 nextPage,
                 loadMore

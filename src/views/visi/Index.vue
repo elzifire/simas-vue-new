@@ -6,9 +6,9 @@
         <!-- New header section -->
         <section id="page-title" class="page-title-mini bg-color page-title-dark">
             <div class="container clearfix">
-                <h1>Visi dan Misi</h1>
+                <h1 class="mt-3">Visi dan Misi</h1>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                    <li class="breadcrumb-item"><router-link to="/">Beranda</router-link></li>
                     <li class="breadcrumb-item active" aria-current="page">Visi dan Misi</li>
                 </ol>
             </div>

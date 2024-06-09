@@ -48,7 +48,7 @@
           </div>
 
           <!-- Primary Navigation -->
-          <nav class="primary-menu with-arrows">
+          <nav class="primary-menu with-arrows mt-3">
             <ul :class="{ 'd-block d-lg-none': isMenuOpen, 'd-lg-flex d-none': !isMenuOpen }" class="menu-container">
               <li class="menu-item current menu-color-home">
                 <router-link :to="{ name: 'home' }" class="menu-link">

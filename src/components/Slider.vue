@@ -29,7 +29,7 @@
   
     // Import ContentLoader component
     import { ContentLoader } from 'vue-content-loader';
-  
+    
     // Import axios
     import axios from 'axios';
   

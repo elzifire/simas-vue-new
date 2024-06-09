@@ -1,160 +1,151 @@
 <template>
     <div class="post-index">
-        <!-- header -->
-        <Header />
-        <!-- end header -->
-
-        <!-- main content -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1 pb-md-1">
-                <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-image" aria-hidden="true"></i> GALERI</h1>
-                <p class="bd-lead">Galeri Foto terbaru tentang MASJID IBN KHALDUN.</p>
-                
-            </div>
-            
-        </header>
-
+      <!-- header -->
+      <Header />
+      <!-- end header -->
         
-
-        <div class="container-fluid mt-5 mb-5">
-
-            <div class="row">
-
-                <div v-if="photos.length > 0" class="row">
-                    <div class="col-md-4 mb-4" v-for="photo in photos" :key="photo.id">
-                        <div class="card h-100 shadow-sm border-0 rounded-lg">
-                            <div class="card-img">
-                                <img :src="photo.image" class="w-100"
-                                    style="height: 300px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
-                            </div>
-                            <div class="card-body text-center">
-                                <h6>{{ photo.caption }}</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div v-else>
-                    <div class="row">
-                        <div class="col-md-4 mb-3" v-for="loader in photos_loader" :key="loader">
-                            <div class="card border-0 shadow-sm rounded-lg">
-                                <div class="card-body p-2">
-                                    <ContentLoader />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="text-center" v-show="moreExists">
-                    <button type="button" class="btn btn-primary btn-md" v-on:click="loadMore"><span class="fa fa-arrow-down"></span> LIHAT LEBIH BANYAK</button>
-                </div>
-
-            </div>
+      <div class="container-fluid mt-5 mb-5">
+        <swiper :navigation="true" :modules="modules" class="mySwiper" :autoplay="{delay: 3000}" >
+            <swiper-slide v-for="(photo, id) in photos" :key="photo.id">
+              <a :href="photo.link" target="_blank">
+                <img :src="photo.image" class="img">
+              </a>
+            </swiper-slide>
+        </swiper>
+          
+        <div class="fancy-title title-border">
+            <h3>Album Terbaru</h3>
         </div>
-        <!-- main content -->
+        <div class="row">
 
-        <!-- footer -->
-        <Footer />
-        <!-- end footer -->
+          <div v-if="photos.length > 0" class="row">
+              <div class="col-md-4 mb-4" v-for="photo in photos" :key="photo.id">
+                  <div class="card h-100 shadow-sm border-0 rounded-lg">
+                      <div class="card-img">
+                          <img :src="photo.image" class="w-100"
+                              style="height: 300px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
+                      </div>
+                      <div class="card-body text-start">
+                          <h5 class="card-title">{{ photo.heading }}</h5>
+                          <span class="subtitle">{{ photo.date }}</span>
+                          <p class="card-body" style="unicode-bidi: isolate;" v-html="photo.caption"></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- <div v-else>
+            <div class="row">
+              <div class="col-md-4 mb-3" v-for="loader in photos_loader" :key="loader">
+                <div class="card border-0 shadow-sm rounded-lg">
+                  <div class="card-body p-2">
+                    <ContentLoader />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+   -->
+          <div class="text-center" v-show="moreExists">
+            <button type="button" class="btn btn-primary btn-md" v-on:click="loadMore"><span class="fa fa-arrow-down"></span> LIHAT LEBIH BANYAK</button>
+          </div>
+        </div>
+      </div>
+      <!-- main content -->
+  
+      <!-- footer -->
+      <Footer />
+      <!-- end footer -->
     </div>
-</template>
+  </template>
+  
+  <script>
+  import { ref, onMounted } from 'vue';
+  import axios from 'axios';
+  import { ContentLoader } from 'vue-content-loader';
+  import Header from '../../components/Header.vue';
+  import Footer from '../../components/Footer.vue';
+  // Import Swiper Vue.js components
+  import { Swiper, SwiperSlide } from 'swiper/vue';
+  
+  // Import Swiper styles
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+ 
 
-<script>
-    //import content loader
-    import {
-        ContentLoader
-    } from 'vue-content-loader';
+  // Import required modules
+  import { Navigation } from 'swiper/modules';
 
-    //import axios
-    import axios from 'axios';
 
-    //import hook onMounted from vue
-    import { ref, onMounted } from 'vue';
-
-    //import component
-    import Header from "../../components/Header.vue";
-    import Footer from "../../components/Footer.vue";
-
-    export default {
-        name: 'PhotoComponent',
-
-        components: {
-            //loader component
-            ContentLoader,
-            // component app
-            Header,
-            Footer
-        },
-
-        setup() {
-            
-            //define state
-            const photos        = ref([]);
-            const photos_loader = ref(6);
-            let moreExists      = ref(false);
-            let nextPage        = ref(0);
-
-            //define method fetchDataPhotos
-            const fetchDataPhotos = () => {
-                    axios.get('/api/photo')
-                    .then(response => {
-
-                        //assign response to state photos
-                        photos.value = response.data.data.data
-                        if (response.data.data.current_page < response.data.data.last_page) {
-                            
-                            //set state moreExists to true
-                            moreExists.value = true
-
-                            //set state nextPage to next page
-                            nextPage.value = response.data.data.current_page + 1
-                        } else {
-
-                            //set state moreExists to false
-                            moreExists.value = false
-                        }
-                })
+  export default {
+    name: 'PhotoComponent',
+    components: {
+      ContentLoader,
+      Header,
+      Footer
+    },
+    setup() {
+      const photos = ref([]);
+      const photos_loader = ref(6);
+      const moreExists = ref(false);
+      const nextPage = ref(0);
+  
+      const fetchDataPhotos = () => {
+        axios.get('/api/photo')
+          .then(response => {
+            photos.value = response.data.data.data;
+            if (response.data.data.current_page < response.data.data.last_page) {
+              moreExists.value = true;
+              nextPage.value = response.data.data.current_page + 1;
+            } else {
+              moreExists.value = false;
             }
-
-            //define method loadMore
-            const loadMore = () => {
-                axios.get(`/api/photo?page=${nextPage.value}`)
-                .then(response => {
-                  if (response.data.data.current_page < response.data.data.last_page) {
-
-                        //set state moreExists to true
-                        moreExists.value = true
-
-                        //set state nextPage to next page
-                        nextPage.value = response.data.data.current_page + 1
-                    } else {
-
-                        //set state moreExists to false
-                        moreExists.value = false
-                    }
-
-                    //push data to state photos
-                    response.data.data.data.forEach(data => {
-                        photos.value.push(data)
-                    })
-                })
+          });
+      };
+  
+      const loadMore = () => {
+        axios.get(`/api/photo?page=${nextPage.value}`)
+          .then(response => {
+            if (response.data.data.current_page < response.data.data.last_page) {
+              moreExists.value = true;
+              nextPage.value = response.data.data.current_page + 1;
+            } else {
+              moreExists.value = false;
             }
-
-            //run hook onMounted
-            onMounted(() => {
-
-                //fetch data photos
-                fetchDataPhotos()
+            response.data.data.data.forEach(data => {
+              photos.value.push(data);
             });
-
-            return {
-                photos,
-                photos_loader,
-                moreExists,
-                nextPage,
-                loadMore
-            }
-        }
+          });
+      };
+  
+      onMounted(() => {
+        fetchDataPhotos();
+      });
+  
+      return {
+        photos,
+        photos_loader,
+        moreExists,
+        nextPage,
+        loadMore,
+        modules: [Navigation],
+      };
     }
-</script>
+  }
+  </script>
+  
+  <style scoped>
+  .post-index {
+    padding: 20px;
+  }
+  .card-img img {
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+  }
+  .card-body {
+    text-align: center;
+  }
+  </style>
+  

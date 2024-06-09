@@ -7,7 +7,7 @@
         <!-- new header section -->
         <section id="page-title" class="page-title-mini bg-color page-title-dark">
             <div class="container clearfix">
-                <h1>Pejabat</h1>
+                <h1 class="mt-3">Pejabat</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="https://istiqlal.or.id/">Beranda</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Pejabat Badan Pengelola Masjid Istiqlal</li>

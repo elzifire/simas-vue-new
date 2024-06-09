@@ -5,27 +5,19 @@
         <!-- end header -->
 
         <!-- main content -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1 pb-md-1">
-                <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-bell" aria-hidden="true"></i> AGENDA</h1>
-                <p class="bd-lead">Agenda terbaru MASJID AL-HIJRI II</p>
+        <header>
+            <div id="page-title" class="page-title-mini bg-color page-title-dark">
+                <div class="container clearfix">
+                    <h1 class="mt-3">Event</h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><router-link to="/">Beranda</router-link></li>
+                        <li class="breadcrumb-item active" aria-current="page">Event</li>
+                    </ol>
+                </div>
             </div>
         </header>
 
-        <!-- breadcrumb -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'home' }" class="text-decoration-none"><i class="fa fa-home"></i> Home
-                    </router-link>
-                </li>
-                <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'event' }" class="text-decoration-none"><i class="fa fa-bell"></i> Agenda
-                    </router-link>
-                </li>
-            </ol>
-        </nav>
-        <!-- end breadcrumb -->
+        
 
         <div class="container-fluid mt-5 mb-5">
 
