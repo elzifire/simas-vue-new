@@ -5,26 +5,26 @@
         <!-- end header -->
 
         <!-- main content -->
-        <header id="page-menu">
-            <div id="page-menu-wrap">
-                <div class="container">
-                    <div class="page-menu-row">
-                        <nav class="page-menu-nav">
-                            <ul class="page-menu-container">
-                                <li class="menu-item menu-color-home" v-if="categories.length > 0">
-                                    <router-link :to="{ name: 'detail_category', params: { slug: category.slug } }"
-                  class="list-group-item list-group-item-action border-0 shadow-sm mb-2 rounded"
-                  v-for="category in categories" :key="category.id"><i class="fa fa-folder-open"
-                    aria-hidden="true"></i> {{ category.name.toUpperCase() }}</router-link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+         
+        <!-- buatkan navigasi lalu di dalam navigasi ada category -->
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg bg-color page-title-dark">
+                        <div class="container">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item d-flex" v-if="categories.length > 0">
+                                        <router-link :to="{ name: 'detail_category', params: { slug: category.slug } }"
+                                            class="nav-link text-white" v-for="category in categories" :key="category.id">{{ category.name.toUpperCase() }}</router-link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
                 </div>
             </div>
-           
-        </header>
-
+        </div>
         
 
         <div class="container-fluid mt-5 mb-5">

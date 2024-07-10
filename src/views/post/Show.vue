@@ -5,29 +5,20 @@
         <!-- end header -->
 
         <!-- main content -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1">
-                <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-book-open" aria-hidden="true"></i> BERITA
-                </h1>
-                <p class="bd-lead">{{ post.title }}</p>
+      
+        <!-- buatkan breadcumb -->
+        <div class="container-fluid mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-2">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><router-link to="/" class="text-decoration-none">Beranda</router-link></li>
+                            <li class="breadcrumb-item active" aria-current="page">Berita</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
-        </header>
-
-        <!-- breadcrumb -->
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'home' }" class="text-decoration-none"><i class="fa fa-home"></i> Home
-                    </router-link>
-                </li>
-                <li class="breadcrumb-item">
-                    <router-link :to="{ name: 'post' }" class="text-decoration-none"><i class="fa fa-book-open"></i>
-                        Berita</router-link>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
-            </ol>
-        </nav>
-        <!-- end breadcrumb -->
+        </div>
 
         <div class="container-fluid mt-5 mb-5">
 
@@ -43,6 +34,15 @@
 
                                 <div class="mt-3" v-html="post.content"> </div>
 
+                                <!-- buatkan fitur share -->
+                                <div class="mt-3">
+                                    <h6>Bagikan ke:</h6>
+                                    <div class="d-flex">
+                                        <!-- <a :href="'https://wa.me/?text=' + window.location.href"
+                                            class="btn btn-success btn-sm me-2" target="_blank"><i class="fa fa-whatsapp"
+                                                aria-hidden="true"></i> Whatsapp</a> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -180,6 +180,9 @@
 
             //define route
             const route = useRoute();
+
+            // define get url
+            
 
             //run hook onMounted
             onMounted(() => {
