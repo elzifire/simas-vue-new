@@ -5,12 +5,15 @@
         <!-- end header -->
 
         <!-- main content -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1 pb-md-1">
-                <h1 class="bd-title mt-4 font-weight-bold"><i class="fa-solid fa-user"></i> IMAM DAN MUADZIN </h1>
-
+        <section id="page-title" class="page-title-mini bg-color page-title-dark">
+            <div class="container clearfix">
+                <h1 class="mt-3">IMAM DAN MUADZIN</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Imam dan Muadzin</li>
+                </ol>
             </div>
-        </header>
+        </section>
         <!-- team  -->
         <section class="bg-light py-3 py-md-5 py-xl-8">
             <div class="container overflow-hidden">

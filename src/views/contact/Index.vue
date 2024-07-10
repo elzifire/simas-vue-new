@@ -6,8 +6,8 @@
 
         <!-- page title -->
         <section id="page-title" class="page-title-mini bg-color page-title-dark">
-            <div class="container clearfix">
-                <h1>Kontak Kami</h1>
+            <div class="container clearfix mt-2">
+                <h1 style="margin-top: 1rem;">Kontak Kami</h1>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Beranda</a></li>
                     <!-- <li class="breadcrumb-item">Halaman</li> -->
@@ -81,8 +81,9 @@
                     if (response.data && response.data.data) {
                         contacts.value = response.data.data;
                     }
-                } catch (error) {
-                    console.error("There was an error fetching the contact data:", error);
+                } 
+                catch (error) {
+                    console.error(error.response.data.data) ;// show error message
                 }
             });
 
@@ -96,12 +97,13 @@
 <style scoped>
 /* Add styles to ensure the new header section looks good */
 .page-title-mini {
-    padding: 20px 0;
+  height: 80px;
 }
 
-.page-title-dark {
-    background-color: #333;
-    color: white;
+.page-title-mini h1 {
+  font-size: 24px;
+  line-height: 80px;
+  margin-top: 1rem;
 }
 
 .breadcrumb {

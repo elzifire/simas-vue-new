@@ -4,8 +4,11 @@ import { createRouter, createWebHistory } from 'vue-router';
 //import axios
 import axios from 'axios';
 
+// .env
+
+
 //default base URL / EndPoint API
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = import.meta.env.VITE_URL_ENDPOINT;
 
 //define a routes
 const routes = [

@@ -6,12 +6,12 @@
 
         <!-- main content -->
         <header>
-            <div id="page-title" class="page-title-mini bg-color page-title-dark">
+            <div id="page-title" class="page-title-mini page-title-dark" style="background-color: #793d18;">
                 <div class="container clearfix">
-                    <h1 class="mt-3">Event</h1>
+                    <h1 class="mt-3">AGENDA</h1>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><router-link to="/">Beranda</router-link></li>
-                        <li class="breadcrumb-item active" aria-current="page">Event</li>
+                        <li class="breadcrumb-item active" aria-current="page">Agenda</li>
                     </ol>
                 </div>
             </div>
