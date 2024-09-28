@@ -4,9 +4,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 //import axios
 import axios from 'axios';
 
-// .env
-
-
 //default base URL / EndPoint API
 axios.defaults.baseURL = import.meta.env.VITE_URL_ENDPOINT;
 

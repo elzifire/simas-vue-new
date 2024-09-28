@@ -21,7 +21,7 @@
   
               <div v-if="posts.length > 0" class="row">
                 <div class="col-md-4 mb-4" v-for="post in posts" :key="post.id">
-                  <div class="card h-100 shadow-sm border-0 rounded-lg">
+                  <div class="card h-100 shadow-sm border-0 rounded-lg">  
                     <div class="card-img">
                       <img :src="post.image" class="w-100"
                         style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
@@ -138,7 +138,7 @@
               <!-- end video section -->
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 sticky-lg-top" id="coba">
             <!-- kategori section -->
             <div class="title mb-4 mt-5">
               <h4><i class="fa fa-folder" aria-hidden="true"></i> KATEGORI </h4>

@@ -79,7 +79,8 @@
 
             onMounted(async () => {
                 try {
-                    const response = await axios.get('http://localhost:8000/api/management');
+                    const url = import.meta.env.VITE_URL_ENDPOINT_MANAGEMENT;
+                    const response = await axios.get(url);
                     management.value = response.data.data; // Mengisi array management dengan data dari API
                 } catch (error) {
                     console.error('Error fetching management data:', error);
