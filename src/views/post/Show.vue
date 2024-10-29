@@ -29,6 +29,16 @@
                         <div class="card border-0 shadow-sm rounded">
                             <div class="card-body">
                                 <h3>{{ post.title }}</h3>
+
+                                <div class="p text-secondary" v-html="post.desc"></div>
+                                <div class="mt-3">
+                                    by {{ post.author }}
+                                    <i class="fa-solid fa-ellipsis-vertical"></i> 
+                                    <i class="fa fa-calendar me-2" aria-hidden="true"></i> {{ post.created_at }} 
+                                    <i class="fa-solid fa-ellipsis-vertical me-2"></i> 
+                                </div>
+
+
                                 <hr>
                                 <img :src="post.image" class="w-100 rounded">
 
@@ -38,9 +48,15 @@
                                 <div class="mt-3">
                                     <h6>Bagikan ke:</h6>
                                     <div class="d-flex">
-                                        <!-- <a :href="'https://wa.me/?text=' + window.location.href"
-                                            class="btn btn-success btn-sm me-2" target="_blank"><i class="fa fa-whatsapp"
-                                                aria-hidden="true"></i> Whatsapp</a> -->
+                                        <a :href="'https://www.facebook.com/sharer/sharer.php?u=' + url" target="_blank"
+                                            class="btn btn-primary btn-sm me-2"><i class="fa-brands fa-facebook " aria-hidden="true"></i></a>
+                                        <a :href="'https://twitter.com/intent/tweet?url=' + url" target="_blank"
+                                            class="btn btn-info btn-sm me-2"><i class="fa-brands fa-x-twitter"
+                                                aria-hidden="true"></i></a>
+                                        <a :href="'https://wa.me/?text=' + url" target="_blank"
+                                            class="btn btn-success btn-sm"><i class="fa-brands fa-whatsapp"
+                                                aria-hidden="true"></i></a>
+                                                <i class=""></i>
                                     </div>
                                 </div>
                             </div>
@@ -181,9 +197,8 @@
             //define route
             const route = useRoute();
 
-            // define get url
-            
-
+            // define get url now
+            const url = window.location.href;
             //run hook onMounted
             onMounted(() => {
 
@@ -212,7 +227,8 @@
                 events,
                 categories,
                 events_loader,
-                categories_loader
+                categories_loader,
+                url
             }
 
         }

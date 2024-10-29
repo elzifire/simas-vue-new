@@ -22,18 +22,21 @@
               <div v-if="posts.length > 0" class="row">
                 <div class="col-md-4 mb-4" v-for="post in posts" :key="post.id">
                   <div class="card h-100 shadow-sm border-0 rounded-lg">  
-                    <div class="card-img">
+                    <div class="card-img-top">
                       <img :src="post.image" class="w-100"
                         style="height: 200px;object-fit: cover;border-top-left-radius: .3rem;border-top-right-radius: .3rem;">
+                        
                     </div>
                     <div class="card-body">
                       <router-link :to="{ name: 'detail_post', params: { slug: post.slug } }"
                         class="text-dark text-decoration-none">
-                        <h6>{{ post.title }}</h6>
+                        <h4>{{ post.title }}</h4>
                       </router-link>
                     </div>
                     <div class="card-footer bg-white">
                       <i class="fa fa-calendar" aria-hidden="true"></i> {{ post.created_at }}
+                      <!-- category -->
+                      <i class="fa fa-folder" aria-hidden="true"></i> {{ post.category.name }}
                     </div>
                   </div>
                 </div>
@@ -187,6 +190,25 @@
               </div>
             </div>
             <!-- end money section -->
+             <!-- Newsletter
+Subscribe to our mailing list -->
+<div class="title mb-4 mt-5">
+  <h4><i class="fa fa-envelope" aria-hidden="true"></i> BERLANGGANAN</h4>
+  <form action="">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="button-addon2">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Berlangganan</button>
+    </div>
+  </form>
+</div>
+<div class="widget clearfix">
+                            <h4 class="mb-2 ls1 text-uppercase fw-bold">Follow <a href="" target="_blank">@masjiduika.official</a></h4>
+                            <div class="line line-xs line-sports"></div>
+
+                           
+                           
+                        </div>
+   
           </div>
         </div>
       </div>

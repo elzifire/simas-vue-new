@@ -17,17 +17,17 @@
         <!-- team  -->
         <section class="bg-light py-3 py-md-5 py-xl-8">
             <div class="container overflow-hidden">
-                <div class="row gy-4 gy-lg-0 gx-xxl-5">
+                <div class="row gy-4 gy-lg-0 gx-xxl-5 w-100 h-auto">
                     <!-- image muadzin -->
                     <div v-if="muadzin.length > 0">
                         <div v-for="muadzinData in muadzin" :key="muadzinData.id" class="col-12 col-md-6 col-lg-3">
                             <div class="card border-0 border-bottom border-primary shadow-sm overflow-hidden">
                                 <div class="card-body p-0">
-                                    <figure class="m-0 p-0">
+                                    <figure class="m-0 p-0 2-100 ">
                                         <img :src="muadzinData.image" class="img-fluid" loading="lazy"
                                             :alt="muadzinData.name">
                                         <figcaption class="m-0 p-4">
-                                            <h4 class="mb-1 text-center">{{ muadzinData.name }}</h4>
+                                            <h4 class="mb-1 text-center w-auto">{{ muadzinData.name }}</h4>
                                             <p class="text-secondary mb-0 text-center">Muadzin</p>
                                         </figcaption>
                                     </figure>
@@ -57,7 +57,7 @@
                 <div class="card-body p-0">
                     <figure class="m-0 p-0">
                         <img :src="leaderData.image" class="img-fluid" loading="lazy"
-                            :alt="leaderData.name">
+                            :alt="leaderData.name" height="auto" width="100%">
                         <figcaption class="m-0 p-4">
                             <h4 class="mb-1 text-center"> {{ leaderData.name }} </h4>
                             <p class="text-secondary mb-0 text-center"> Imam </p>

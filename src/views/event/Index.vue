@@ -17,54 +17,54 @@
             </div>
         </header>
 
-        
-
         <div class="container-fluid mt-5 mb-5">
-
-            <div class="row">
-
-                <div v-if="events.length > 0" class="row">
-
-                    <div class="col-md-6 mb-3" v-for="event in events" :key="event.id">
-                        <router-link :to="{name: 'detail_event', params:{slug: event.slug}}"
-                            class="text-decoration-none text-dark">
-                            <div class="card mb-3 shadow-sm border-0">
-                                <div class="card-body">
-                                    <h6>{{ event.title }}</h6>
-                                    <hr>
-                                    <div>
-                                        <i class="fa fa-map-marker" aria-hidden="true"></i> {{ event.location }}
-                                    </div>
-                                    <div class="mt-2">
-                                        <i class="fa fa-calendar" aria-hidden="true"></i> {{ event.date }}
-                                    </div>
+            <div v-if="events.length > 0" class="row gy-4">
+                <div class="col-md-6" v-for="event in events" :key="event.id">
+                    <router-link :to="{ name: 'detail_event', params: { slug: event.slug } }" class="text-decoration-none text-dark">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="row g-0">
+                                <div class="col-md-4">
+                                    <img :src="event.image" class="img-fluid rounded-start" :alt="event.title" />
                                 </div>
-                            </div>
-                        </router-link>
-                    </div>
-
-                </div>
-
-                <div v-else>
-                    <div class="row">
-                        <div class="col-md-6 mb-3" v-for="loader in events_loader" :key="loader">
-                            <div class="card border-0 shadow-sm rounded-lg">
-                                <div class="card-body">
-                                    <FacebookLoader />
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ event.title }}</h5>
+                                        <p class="card-text" v-html="event.desc"></p>
+                                        <p class="card-text">
+                                            <small class="text-body-secondary">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i> {{ event.location }}
+                                            </small>
+                                        </p>
+                                        <p class="card-text">
+                                            <small class="text-body-secondary">
+                                                <i class="fa fa-calendar" aria-hidden="true"></i> {{ event.date }}
+                                            </small>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </router-link>
+                </div>
+            </div>
+
+            <div v-else class="row gy-4">
+                <div class="col-md-6" v-for="loader in events_loader" :key="loader">
+                    <div class="card h-100 border-0 shadow-sm rounded-lg">
+                        <div class="card-body">
+                            <FacebookLoader />
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-center" v-show="moreExists">
-                    <button type="button" class="btn btn-primary btn-md" v-on:click="loadMore"><span class="fa fa-arrow-down"></span> LIHAT LEBIH BANYAK</button>
-                </div>
-
+            <div class="text-center mt-4" v-show="moreExists">
+                <button type="button" class="btn btn-primary btn-md" @click="loadMore">
+                    <span class="fa fa-arrow-down"></span> LIHAT LEBIH BANYAK
+                </button>
             </div>
         </div>
         <!-- main content -->
-
 
         <!-- footer -->
         <Footer />
@@ -73,103 +73,50 @@
 </template>
 
 <script>
-    //import content loader
-    import {
-        FacebookLoader
-    } from 'vue-content-loader';
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import Header from "../../components/Header.vue";
+import Footer from "../../components/Footer.vue";
+import { FacebookLoader } from 'vue-content-loader';
 
-    //import axios
-    import axios from 'axios';
+export default {
+    name: 'EventComponent',
+    components: { Header, Footer, FacebookLoader },
+    setup() {
+        const events = ref([]);
+        const events_loader = ref(4);
+        const moreExists = ref(false);
+        const nextPage = ref(0);
 
-    //import hook onMounted from vue
-    import { ref, onMounted } from 'vue';
-
-    //import component
-    import Header from "../../components/Header.vue";
-    import Footer from "../../components/Footer.vue";
-
-    export default {
-        name: 'EventComponent',
-
-        components: {
-            FacebookLoader,
-            Header,
-            Footer
-        },
-
-        setup() {
-            
-            //define state
-            const events = ref([]);
-            const events_loader = ref(4);
-
-            //define state moreExists
-            let moreExists = ref(false);
-            let nextPage = ref(0);
-
-            //define method fetchDataEvents
-            const fetchDataEvents = () => {
-                axios.get('/api/event')
-                    .then(response => {
-
-                        //assign response to state events
-                        events.value = response.data.data.data
-
-                        //check if response has next page
-                        if (response.data.data.current_page < response.data.data.last_page) {
-                            
-                            //set state moreExists to true
-                            moreExists.value = true
-
-                            //increment nextPage
-                            nextPage.value = response.data.data.current_page + 1
-                        } else {
-
-                            //set state moreExists to false
-                            moreExists.value = false
-                        }
-                    })
-            }
-
-            //define method loadMore
-            const loadMore = () => {
-                axios.get(`/api/event?page=${nextPage.value}`)
-                    .then(response => {
-                        if (response.data.data.current_page < response.data.data.last_page) {
-                                
-                                //set state moreExists to true
-                                moreExists = true
-
-                                //increment nextPage
-                                nextPage = response.data.data.current_page + 1
-                        } else {
-
-                                //set state moreExists to false
-                                this.moreExists = false
-                        }
-                        
-                        //assign response to state posts
-                        response.data.data.data.forEach(data => {
-                            events.value.push(data)
-                        })
-                    })
-            }
-
-            //run hook onMounted
-            onMounted(() => {
-
-                //fetch data events
-                fetchDataEvents()
+        const fetchDataEvents = () => {
+            axios.get('/api/event').then(response => {
+                events.value = response.data.data.data;
+                moreExists.value = response.data.data.current_page < response.data.data.last_page;
+                nextPage.value = response.data.data.current_page + 1;
             });
+        };
 
-            //return data
-            return {
-                events,
-                events_loader,
-                moreExists,
-                nextPage,
-                loadMore
-            }
-        }
+        const loadMore = () => {
+            axios.get(`/api/event?page=${nextPage.value}`).then(response => {
+                if (response.data.data.current_page < response.data.data.last_page) {
+                    moreExists.value = true;
+                    nextPage.value = response.data.data.current_page + 1;
+                } else {
+                    moreExists.value = false;
+                }
+                events.value.push(...response.data.data.data);
+            });
+        };
+
+        onMounted(fetchDataEvents);
+
+        return { events, events_loader, moreExists, nextPage, loadMore };
     }
+};
 </script>
+
+<style scoped>
+.row.gy-4 > * {
+    margin-bottom: 20px; /* Jarak antar elemen card */
+}
+</style>

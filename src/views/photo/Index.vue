@@ -5,13 +5,8 @@
       <!-- end header -->
         
       <div class="container-fluid mt-5 mb-5">
-        <swiper :navigation="true" :modules="modules" class="mySwiper" :autoplay="{delay: 3000}" >
-            <swiper-slide v-for="(photo, id) in photos" :key="photo.id">
-              <a :href="photo.link" target="_blank">
-                <img :src="photo.image" class="img">
-              </a>
-            </swiper-slide>
-        </swiper>
+        <!-- buatkan sebuah carousel dari boostrap 5 ,data fotonya dari {{ photo.image }} -->
+         
           
         <div class="fancy-title title-border">
             <h3>Album Terbaru</h3>
