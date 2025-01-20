@@ -36,7 +36,8 @@
                     <div class="card-footer bg-white">
                       <i class="fa fa-calendar" aria-hidden="true"></i> {{ post.created_at }}
                       <!-- category -->
-                      <i class="fa fa-folder" aria-hidden="true"></i> {{ post.category.name }}
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <i class="fa fa-folder ms-5" aria-hidden="true"></i> {{ post.category.name }}
                     </div>
                   </div>
                 </div>

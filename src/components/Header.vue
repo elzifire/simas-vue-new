@@ -2,7 +2,7 @@
   <!-- Header -->
   <header id="header" class="header-size-sm" data-sticky-shrink="false">
     <div class="container">
-      <div class="header-row justify-content-between">
+      <div class="header-row justify-content-center text-align-center ">
         
         <!-- Logo -->
         <div id="logo" class="col-auto ms-auto ms-mb-0 me-mb-0 order-md-2">
@@ -37,7 +37,7 @@
 
     <div id="header-wrap" class="border-top border-f5">
       <div class="container">
-        <div class="header-row justify-content-between flex-row-reverse flex-lg-row">
+        <div class="header-row align-items-center justify-content-center flex-row-reverse flex-lg-row">
           
           <div @click="toggleMenu" id="primary-menu-trigger">
             <svg class="svg-trigger" viewBox="0 0 100 100">
@@ -50,13 +50,13 @@
           <!-- Primary Navigation -->
           <nav class="primary-menu with-arrows mt-3">
             <ul :class="{ 'd-block d-lg-none': isMenuOpen, 'd-lg-flex d-none': !isMenuOpen }" class="menu-container">
-              <li class="menu-item current menu-color-home">
+              <li class="menu-item current menu-color-home me-3">
                 <router-link :to="{ name: 'home' }" class="menu-link">
                   <div>Beranda</div>
                 </router-link>
               </li>
-              <li class="menu-item menu-color-home">
-                <a @click="toggleSubMenu" class="menu-link" href="#">
+              <li class="menu-item menu-color-home me-2">
+                <a @click="toggleSubMenu" class="menu-link me-2" href="#">
                   <div>Profil</div>
                 </a>
                 <ul :class="{ 'd-block': isSubMenuOpen, 'd-none': !isSubMenuOpen }" class="sub-menu-container">
@@ -74,7 +74,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="menu-item menu-color-home">
+              <li class="menu-item menu-color-home me-2">
                 <router-link :to="{ name: 'post' }" class="menu-link">
                   <div>Berita</div>
                 </router-link>
@@ -84,7 +84,7 @@
                   <div>Agenda</div>
                 </router-link>
               </li>
-              <li class="menu-item menu-color-home">
+              <li class="menu-item menu-color-home me-3">
                 <a href="#" class="menu-link">
                   <div>Layanan</div>
                 </a>
@@ -96,12 +96,12 @@
                   </li>
                 </ul>
               </li>
-              <li class="menu-item menu-color-home">
+              <li class="menu-item menu-color-home me-3">
                 <router-link :to="{ name: 'photo' }" class="menu-link">
                   <div>Galeri</div>
                 </router-link>
               </li>
-              <li class="menu-item menu-color-home">
+              <li class="menu-item menu-color-home me-3">
                 <router-link :to="{ name: 'video' }" class="menu-link">
                   <div>Video</div>
                 </router-link>
@@ -160,3 +160,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .header-row{
+    display: flex;
+    align-items: center;
+
+  }
+
+  .primary-menu {
+    display: flex;
+    align-items: center;
+  }
+</style>
