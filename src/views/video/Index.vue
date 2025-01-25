@@ -5,12 +5,17 @@
         <!-- end header -->
 
         <!-- main content -->
-        <header class="pt-5 border-bottom bg-light">
-            <div class="container pt-md-1 pb-md-1">
-                <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-video" aria-hidden="true"></i> VIDEO</h1>
-                <p class="bd-lead">Galeri Video terbaru  AL-HIJRI II.</p>
-            </div>
-        </header>
+            <header>
+                <div id="page-title" class="page-title-mini page-title-dark" style="background-color: #793d18;">
+                    <div class="container clearfix">
+                        <h1 class="mt-3">VIDEO</h1>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><router-link to="/">Beranda</router-link></li>
+                            <li class="breadcrumb-item active" aria-current="page">Video</li>
+                        </ol>
+                    </div>
+                </div>
+            </header>
 
         <!-- breadcrumb -->
         <nav aria-label="breadcrumb">

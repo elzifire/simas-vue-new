@@ -8,9 +8,9 @@
         <!-- buatkan sebuah carousel dari boostrap 5 ,data fotonya dari {{ photo.image }} -->
          
           
-        <div class="fancy-title title-border">
+        <!-- <div class="fancy-title title-border">
             <h3>Album Terbaru</h3>
-        </div>
+        </div> -->
         <div class="row">
 
           <div v-if="photos.length > 0" class="row">
@@ -29,7 +29,7 @@
               </div>
           </div>
   
-          <!-- <div v-else>
+          <div v-else>
             <div class="row">
               <div class="col-md-4 mb-3" v-for="loader in photos_loader" :key="loader">
                 <div class="card border-0 shadow-sm rounded-lg">
@@ -40,9 +40,9 @@
               </div>
             </div>
           </div>
-   -->
+  
           <div class="text-center" v-show="moreExists">
-            <button type="button" class="btn btn-primary btn-md" v-on:click="loadMore"><span class="fa fa-arrow-down"></span> LIHAT LEBIH BANYAK</button>
+            <button type="button" class="btn btn-md text-white" style="background-color: #793d18;" v-on:click="loadMore"><span class="fa fa-arrow-down"></span> LIHAT LEBIH BANYAK</button>
           </div>
         </div>
       </div>
