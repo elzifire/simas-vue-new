@@ -5,22 +5,40 @@
         <!-- end header -->
 
         <!-- main content -->
-        <header class="pt-5 border-bottom bg-light">
+        <!-- <header class="pt-5 border-bottom bg-light">
             <div class="container pt-md-1 pb-md-1">
                 <h1 class="bd-title mt-4 font-weight-bold"><i class="fa fa-book-open" aria-hidden="true"></i> BERITA
                 </h1>
                 <p class="bd-lead">{{ categoryInfo.message }}</p>
             </div>
-        </header>
+        </header> -->
 
         <!-- breadcrumb -->
-        <nav aria-label="breadcrumb">
+        <!-- <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><router-link :to="{ name: 'home' }" class="text-decoration-none"><i class="fa fa-home"></i> Home</router-link></li>
             <li class="breadcrumb-item"><router-link :to="{ name: 'post' }" class="text-decoration-none"><i class="fa fa-book-open"></i> Berita</router-link></li>
         </ol>
-        </nav>
+        </nav> -->
         <!-- end breadcrumb -->
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg bg-color page-title-dark">
+                        <div class="container">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item d-flex" v-if="categories.length > 0">
+                                        <router-link :to="{ name: 'detail_category', params: { slug: category.slug } }"
+                                            class="nav-link text-white" v-for="category in categories" :key="category.id">{{ category.name.toUpperCase() }}</router-link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
 
         <div class="container-fluid mt-5 mb-5">
 
