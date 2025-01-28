@@ -34,7 +34,7 @@
                       </router-link>
                     </div>
                     <div class="card-footer bg-white">
-                      <i class="fa fa-calendar" aria-hidden="true"></i> {{ post.created_at }}
+                      <i class="fa fa-calendar" aria-hidden="true"></i> {{ post.date }}
                       <!-- category -->
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                       <i class="fa fa-folder ms-5" aria-hidden="true"></i> {{ post.category.name }}
