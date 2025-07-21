@@ -94,7 +94,13 @@ const routes = [
         path: '/slider',
         name: 'slider',
         component: () => import("../components/Slider.vue"),
-    }
+    },
+    // default page not found
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'not-found',
+        component: () => import("../views/NotFound.vue"),
+    },
 
 
 ]
